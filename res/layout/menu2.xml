@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="fill_horizontal"
+    android:background="#e2e2e2" >
+
+    <ImageButton
+        android:id="@+id/options"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/options_white"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/add"
+        android:layout_alignParentLeft="true" />
+
+    <LinearLayout 
+           android:id="@+id/lL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/options"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true">
+    <ImageButton
+        android:id="@+id/logo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+       android:clickable="true"
+        android:background="@drawable/ospinet_big_logo" />
+<TextView 
+    android:id="@+id/logoName"
+     android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:text="Ospinet"
+       android:textColor="@android:color/black"
+       android:layout_marginTop="4dp"
+       android:layout_marginLeft="3dp"
+       android:clickable="true"
+       android:textSize="18sp"/>
+</LinearLayout>
+    
+    <ImageButton
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/addrecord" />
+
+</RelativeLayout>

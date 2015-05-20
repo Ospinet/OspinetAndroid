@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@drawable/blue_white">
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_login_logo"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ospinet_big_logo"
+        android:layout_marginBottom="24dp"
+        android:layout_above="@+id/txt_login_name"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="15dp" />
+
+        <TextView
+            android:id="@+id/txt_login_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Healthcare in"
+            android:textColor="#1E80C5"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_above="@+id/txt_login_name"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txt_login_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Hands"
+        android:textColor="#1E80C5"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/img_login_logo"/>
+
+    <Button
+        android:id="@+id/btn_login_signup"
+        style="@drawable/button_custom"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_custom"
+        android:onClick="signup"
+        android:text="Sign Up"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/txt_login_name"
+        android:layout_marginRight="58dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_login_button"
+        style="@drawable/button_custom"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_custom_two"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:singleLine="false"
+        android:gravity="center"
+        android:layout_alignTop="@+id/btn_login_signup"
+        android:layout_alignLeft="@+id/txt_login_name"
+        android:layout_marginLeft="68dp"
+        android:textStyle="bold" />
+</RelativeLayout>
