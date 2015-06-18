@@ -3,12 +3,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E9E9E9"
+        
     android:id="@+id/rel">
     <com.devspark.sidenavigation.SideNavigationView
         android:id="@+id/side_navigation_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="#FFFFFF" />
+        android:background="@android:color/transparent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,8 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_centerInParent="true"
+            android:background="#E9E9E9"
             android:padding="15dp">
 
+            
             <EditText
                 android:id="@+id/edtFname"
                 android:textColorHint="#ffb8c6c8"
@@ -35,6 +39,8 @@
                 android:background="@drawable/edt_selector"
                 android:hint="First Name"
                 android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:drawableRight="@drawable/nameselector"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true">
                 <requestFocus /></EditText>
@@ -43,30 +49,32 @@
                 android:id="@+id/edtlname"
                 android:textColorHint="#ffb8c6c8"
                 android:fontFamily="Walkway-light"
-                android:layout_width="match_parent"
+                android:drawableRight="@drawable/nameselector"
+                android:layout_width="350dp"
                 android:layout_height="41dp"
                 android:textSize="17dp"
                 android:layout_below="@+id/edtFname"
                 android:background="@drawable/edt_selector"
+                
                 android:hint="Last Name"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
                 android:singleLine="true"
                 android:layout_alignLeft="@+id/edtFname"
                 android:layout_alignRight="@+id/edtFname">
                 <requestFocus /></EditText>
 
-
             <EditText
                 android:id="@+id/edtEmail"
                 android:textColorHint="#ffb8c6c8"
                 android:fontFamily="Walkway-light"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="41dp"
+                android:drawableRight="@drawable/emailselector"
                 android:textSize="17dp"
                 android:layout_below="@+id/edtlname"
                 android:background="@drawable/edt_selector"
                 android:hint="Email"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
                 android:singleLine="true"
                 android:layout_alignLeft="@+id/edtlname"
                 android:layout_alignRight="@+id/edtlname">
@@ -77,36 +85,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/edtEmail"
-                android:layout_marginTop="10dp"
-                android:layout_alignRight="@+id/edtEmail"
-                android:layout_alignLeft="@+id/edtEmail">
+                android:layout_marginTop="15dp"
+                android:longClickable="true"
+                android:layout_centerHorizontal="true">
 
-                <Button
+                <ImageView
                     android:id="@+id/btnMale"
-                    android:layout_width="150dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_height="41dp"
-                    android:paddingBottom="7dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/button_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/maleselector"
                     android:onClick="maleClicked"
-                    android:text="Male" />
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="5dp"/>
 
-                <Button
+                <ImageView
                     android:id="@+id/btnFemale"
-                    android:layout_width="150dp"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_height="41dp"
-                    android:paddingBottom="7dp"
-                    android:background="@drawable/button_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/femaleselector"
                     android:onClick="femaleClicked"
-                    android:text="Female"
                     android:layout_alignTop="@+id/btnMale"
-                    android:layout_alignParentRight="true" />            </RelativeLayout>
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/btnMale"
+                     />
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/relBirthInfo"
@@ -114,8 +117,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linGender"
                 android:layout_marginTop="10dp"
-                android:layout_alignRight="@+id/linGender"
-                android:layout_alignLeft="@+id/linGender">
+             android:layout_centerHorizontal="true"
+                android:longClickable="true">
+             
 
                 <Button
                     android:id="@+id/btnDOB"
@@ -186,16 +190,17 @@
                     android:id="@+id/spinYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:longClickable="true" />
 
-                <Spinner
+                  <Spinner
                     android:id="@+id/spinMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/spinYear"/>
-                <Spinner
+                   <Spinner
                     android:id="@+id/spinDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -203,6 +208,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/spinMonth"/>
             </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/relBtn"

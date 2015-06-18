@@ -9,7 +9,8 @@
           <com.devspark.sidenavigation.SideNavigationView
         android:id="@+id/side_navigation_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" 
+        android:background="@android:color/transparent" />/>
          <RelativeLayout
             android:id="@+id/rel_home_header"
             android:layout_width="match_parent"

@@ -205,7 +205,7 @@ private void showActionBar() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_View.this,Member_Home.class);
+			Intent i = new Intent(Member_View.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}
@@ -215,7 +215,7 @@ private void showActionBar() {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_View.this,Member_Home.class);
+			Intent i = new Intent(Member_View.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}

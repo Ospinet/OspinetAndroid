@@ -1,10 +1,12 @@
 package com.ospinet.app;
 
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -20,6 +22,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.ospinet.app.R;
 
 public class LoginActivity extends Activity {
@@ -103,6 +106,7 @@ public class LoginActivity extends Activity {
 		try {
 			Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			intent.putExtra("EXIT", true);
 			LoginActivity.this.startActivity(intent);
 		} catch (Exception ex) {
@@ -169,8 +173,9 @@ public class LoginActivity extends Activity {
 						prefsEditor.putString("roleid", roleid);
 						prefsEditor.commit();
 						loginmsg = "Login successful";
-						Intent intent = new Intent(LoginActivity.this, Member_Home.class);
+						Intent intent = new Intent(LoginActivity.this, PreMemberHome.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 						intent.putExtra("EXIT", true);
 						startActivity(intent);//finish();
 
@@ -245,7 +250,14 @@ public class LoginActivity extends Activity {
 		getMenuInflater().inflate(R.menu.login, menu);
 		return true;
 	}
-
+@Override
+public void onBackPressed() {
+	// TODO Auto-generated method stub
+	
+	Intent i = new Intent(LoginActivity.this, login_2.class);
+    this.startActivity(i);
+    finish();
+}
 public void sendPassword(final String emailID)
 {
 	AsyncTask<Void, Void, String> ForgotPasswordTask = new AsyncTask<Void, Void, String>() {

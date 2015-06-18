@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -26,7 +28,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -241,6 +245,29 @@ public class Record_View extends SherlockActivity implements ISideNavigationCall
             
 		}
 	});
+    ImageButton imgLogo = (ImageButton) v.findViewById(R.id.logo);
+    TextView txtLogoName = (TextView) v.findViewById(R.id.logoName);
+
+    imgLogo.setOnClickListener(new OnClickListener() {
+    	
+    	@Override
+    	public void onClick(View v) {
+    		// TODO Auto-generated method stub
+    		Intent i = new Intent(Record_View.this,PreMemberHome.class);
+    		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    		startActivity(i);
+    	}
+    });
+    txtLogoName.setOnClickListener(new OnClickListener() {
+    	
+    	@Override
+    	public void onClick(View v) {
+    		// TODO Auto-generated method stub
+    		Intent i = new Intent(Record_View.this,PreMemberHome.class);
+    		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    		startActivity(i);
+    	}
+    });
 }
 		@Override
 	    public void onSideNavigationItemClick(int itemId) {
@@ -328,5 +355,14 @@ public class Record_View extends SherlockActivity implements ISideNavigationCall
 				
 			}
 		}
+		public void onBackPressed() {
+			// TODO Auto-generated method stub
+			Intent i = new Intent(Record_View.this, Records_Home.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			i.putExtra("member_id", memid);
+			i.putExtra("EXIT", true);
 
+			Record_View.this.startActivity(i);
+
+		}
 }

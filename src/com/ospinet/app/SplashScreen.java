@@ -17,7 +17,7 @@ public class SplashScreen extends Activity {
 			}*/
 			//requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-			setContentView(R.layout.splashscreen);
+			setContentView(R.layout.home_new);
 
 			new Handler().postDelayed(new Runnable() {
 

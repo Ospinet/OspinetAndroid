@@ -1,11 +1,13 @@
 package com.ospinet.app;
 
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -14,6 +16,7 @@ import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
 import com.devspark.sidenavigation.SideNavigationView.Mode;
 import com.ospinet.app.R;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -303,7 +306,7 @@ public class Record_Edit extends SherlockActivity implements ISideNavigationCall
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(Record_Edit.this,Member_Home.class);
+    		Intent i = new Intent(Record_Edit.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}
@@ -313,7 +316,7 @@ public class Record_Edit extends SherlockActivity implements ISideNavigationCall
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(Record_Edit.this,Member_Home.class);
+    		Intent i = new Intent(Record_Edit.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}
@@ -352,5 +355,13 @@ public class Record_Edit extends SherlockActivity implements ISideNavigationCall
 	        }
 	       // finish();
 	    }
-
+			public void onBackPressed() {
+				// TODO Auto-generated method stub
+				
+				Intent intent = new Intent(Record_Edit.this, Records_Home.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("member_id", memid);
+				intent.putExtra("EXIT", true);
+				Record_Edit.this.startActivity(intent);
+			}
 }

@@ -1,11 +1,13 @@
 package com.ospinet.app;
 
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -23,20 +25,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
 import com.devspark.sidenavigation.SideNavigationView.Mode;
-import com.ospinet.app.R;
 
 public class Member_Edit extends SherlockActivity implements ISideNavigationCallback {
 	String memid;
 	EditText edtFname, edtLname, edtEmail, edtAge;
-	Button btnAdd, btnCancel, btnMale, btnFemale, btnDob, btnAge, btnUnborn;
+	Button btnAdd, btnCancel,  btnDob, btnAge, btnUnborn;
+	ImageView btnMale, btnFemale;
 	static ProgressDialog dialogP;
 	Spinner spYear, spMonth, spDay;
 	String birth_info = "";
@@ -67,8 +71,8 @@ public class Member_Edit extends SherlockActivity implements ISideNavigationCall
 
 		btnAdd = (Button) findViewById(R.id.btnAdd);
 		btnCancel = (Button) findViewById(R.id.btnCancel);
-		btnMale = (Button) findViewById(R.id.btnMale);
-		btnFemale = (Button) findViewById(R.id.btnFemale);
+		btnMale = (ImageView) findViewById(R.id.btnMale);
+		btnFemale = (ImageView) findViewById(R.id.btnFemale);
 		btnDob = (Button) findViewById(R.id.btnDOB);
 		btnAge = (Button) findViewById(R.id.btnAge);
 		btnUnborn = (Button) findViewById(R.id.btnUnborn);
@@ -284,14 +288,14 @@ new GetMemberDetails().execute();
 		btnAge.setBackgroundResource(R.drawable.button_custom);
 		btnDob.setBackgroundResource(R.drawable.button_custom);
 		btnUnborn.setBackgroundResource(R.drawable.button_custom);
-		btnMale.setBackgroundResource(R.drawable.button_custom);
-		btnFemale.setBackgroundResource(R.drawable.button_custom);
+		btnMale.setBackgroundResource(R.drawable.maleselector);
+		btnFemale.setBackgroundResource(R.drawable.femaleselector);
 
         btnAge.setTextColor(Color.WHITE);
         btnDob.setTextColor(Color.WHITE);
         btnUnborn.setTextColor(Color.WHITE);
-        btnMale.setTextColor(Color.WHITE);
-        btnFemale.setTextColor(Color.WHITE);
+        //btnMale.setTextColor(Color.WHITE);
+        //btnFemale.setTextColor(Color.WHITE);
 
 		// reset visibility
 		spYear.setVisibility(View.INVISIBLE);
@@ -408,10 +412,10 @@ new GetMemberDetails().execute();
 
 	public void maleClicked(View v) {
 		try {
-			btnMale.setBackgroundResource(R.drawable.button_custom_two);
-            btnMale.setTextColor(Color.WHITE);
-			btnFemale.setBackgroundResource(R.drawable.button_custom);
-            btnFemale.setTextColor(Color.WHITE);
+			btnMale.setBackgroundResource(R.drawable.malepressed);
+           // btnMale.setTextColor(Color.WHITE);
+			btnFemale.setBackgroundResource(R.drawable.femaleselector);
+            //btnFemale.setTextColor(Color.WHITE);
 			gender = "male";
 		} catch (Exception ex) {
 
@@ -420,10 +424,10 @@ new GetMemberDetails().execute();
 
 	public void femaleClicked(View v) {
 		try {
-			btnFemale.setBackgroundResource(R.drawable.button_custom_two);
-            btnFemale.setTextColor(Color.WHITE);
-			btnMale.setBackgroundResource(R.drawable.button_custom);
-            btnMale.setTextColor(Color.WHITE);
+			btnFemale.setBackgroundResource(R.drawable.femalepressed);
+         //   btnFemale.setTextColor(Color.WHITE);
+			btnMale.setBackgroundResource(R.drawable.maleselector);
+         //   btnMale.setTextColor(Color.WHITE);
 			gender = "female";
 		} catch (Exception ex) {
 
@@ -543,17 +547,17 @@ new GetMemberDetails().execute();
 					edtEmail.setText(email);
 					edtAge.setText(age);
 					if (gen.toLowerCase().equals("male")) {
-						btnMale.setBackgroundResource(R.drawable.button_custom_two);
-                        btnMale.setTextColor(Color.WHITE);
-						btnFemale.setBackgroundResource(R.drawable.button_custom);
-                        btnFemale.setTextColor(Color.WHITE);
+						btnMale.setBackgroundResource(R.drawable.malepressed);
+                        //btnMale.setTextColor(Color.WHITE);
+						btnFemale.setBackgroundResource(R.drawable.femaleselector);
+                        //btnFemale.setTextColor(Color.WHITE);
 						gender = "male";
 
 					} else {
-						btnFemale.setBackgroundResource(R.drawable.button_custom_two);
-                        btnFemale.setTextColor(Color.WHITE);
-						btnMale.setBackgroundResource(R.drawable.button_custom);
-                        btnMale.setTextColor(Color.WHITE);
+						btnFemale.setBackgroundResource(R.drawable.femalepressed);
+                    //    btnFemale.setTextColor(Color.WHITE);
+						btnMale.setBackgroundResource(R.drawable.maleselector);
+                      //  btnMale.setTextColor(Color.WHITE);
 						gender = "female";
 					}
 					birth_info = "age";
@@ -620,7 +624,7 @@ new GetMemberDetails().execute();
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_Edit.this,Member_Home.class);
+			Intent i = new Intent(Member_Edit.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}
@@ -630,7 +634,7 @@ new GetMemberDetails().execute();
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_Edit.this,Member_Home.class);
+			Intent i = new Intent(Member_Edit.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}

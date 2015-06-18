@@ -2,10 +2,12 @@
 package com.ospinet.app;
 
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.app.Dialog;
+
 import com.ospinet.app.R;
 
 public class SignUpActivity extends Activity {
@@ -157,5 +160,11 @@ public class SignUpActivity extends Activity {
 
 	}
 
-	
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		Intent i = new Intent(SignUpActivity.this, login_2.class);
+	    this.startActivity(i);
+	    finish();
+	}
 }

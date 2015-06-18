@@ -6,7 +6,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.app.ActionBar;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -384,7 +384,7 @@ public class Member_Home extends SherlockActivity implements ISideNavigationCall
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		Intent i = new Intent(Member_Home.this,LoginActivity.class);
+		Intent i = new Intent(Member_Home.this,PreMemberHome.class);
 		this.startActivity(i);
 		finish();
 
@@ -434,7 +434,7 @@ public class Member_Home extends SherlockActivity implements ISideNavigationCall
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_Home.this,Member_Home.class);
+			Intent i = new Intent(Member_Home.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}
@@ -444,7 +444,7 @@ public class Member_Home extends SherlockActivity implements ISideNavigationCall
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent i = new Intent(Member_Home.this,Member_Home.class);
+			Intent i = new Intent(Member_Home.this,PreMemberHome.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			startActivity(i);
 		}

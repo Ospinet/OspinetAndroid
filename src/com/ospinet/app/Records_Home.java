@@ -412,7 +412,7 @@ public class Records_Home extends SherlockActivity implements ISideNavigationCal
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(Records_Home.this,Member_Home.class);
+    		Intent i = new Intent(Records_Home.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}
@@ -422,7 +422,7 @@ public class Records_Home extends SherlockActivity implements ISideNavigationCal
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(Records_Home.this,Member_Home.class);
+    		Intent i = new Intent(Records_Home.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}

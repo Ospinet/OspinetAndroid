@@ -4,8 +4,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -39,6 +41,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.app.SherlockActivity;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
@@ -656,7 +659,7 @@ public static int calculateInSampleSize(BitmapFactory.Options options,
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(RecordActivity.this,Member_Home.class);
+    		Intent i = new Intent(RecordActivity.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}
@@ -666,7 +669,7 @@ public static int calculateInSampleSize(BitmapFactory.Options options,
     	@Override
     	public void onClick(View v) {
     		// TODO Auto-generated method stub
-    		Intent i = new Intent(RecordActivity.this,Member_Home.class);
+    		Intent i = new Intent(RecordActivity.this,PreMemberHome.class);
     		i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
     		startActivity(i);
     	}
@@ -704,4 +707,14 @@ public static int calculateInSampleSize(BitmapFactory.Options options,
     // finish();
  }
 
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		Intent intent = new Intent(RecordActivity.this, Records_Home.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.putExtra("member_id", memid);
+		intent.putExtra("EXIT", true);
+		RecordActivity.this.startActivity(intent);
+
+	}
 }
