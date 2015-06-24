@@ -31,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -41,6 +42,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.androidquery.AQuery;
 import com.devspark.sidenavigation.ISideNavigationCallback;
 import com.devspark.sidenavigation.SideNavigationView;
 import com.devspark.sidenavigation.SideNavigationView.Mode;
@@ -52,6 +54,7 @@ public class PreMemberHome extends SherlockActivity implements ISideNavigationCa
 
     // rahul
     TextView txtname;
+    ImageView imageView_round;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -61,11 +64,26 @@ public class PreMemberHome extends SherlockActivity implements ISideNavigationCa
 // rahul
         dialog = new ProgressDialog(PreMemberHome.this);
         txtname = (TextView) findViewById(R.id.txtName);
+        imageView_round = (ImageView) findViewById(R.id.imageView_round);
         SharedPreferences myPrefs = PreMemberHome.this
-				.getSharedPreferences("remember", MODE_PRIVATE);
-		String fname = myPrefs.getString("fname", null);
-		String lname = myPrefs.getString("lname", null);
-		txtname.setText(fname +" " + lname);
+                .getSharedPreferences("remember", MODE_PRIVATE);
+        String fname = myPrefs.getString("fname", null);
+        String lname = myPrefs.getString("lname", null);
+        String profile_pic = myPrefs.getString("profile_pic", null);
+        String type = myPrefs.getString("type", null);
+        txtname.setText(fname +" " + lname);
+        String profile_image = (profile_pic +"_250." + type);
+        AQuery androidAQuery = new AQuery(
+				PreMemberHome.this);
+
+		
+       if(profile_pic == null){
+    	   androidAQuery.id(imageView_round).image(
+    			   "http://ospinet.com/assets/images/people/250/default_avatar_250x250.png", false, false,0, 0);   //"http://ospinet.com/assets/images/people/250/default_avatar_250x250.png"
+       }else{
+    	   androidAQuery.id(imageView_round).image(
+    			   "http://ospinet.com/profile_pic/member_pic_250/" + profile_image, false, false,0, 0);   //"http://ospinet.com/profile_pic/member_pic_250/" + profile_image;
+       }
         //new GetLoginUser().execute();
         showActionBar();
         sideNavigationView = (SideNavigationView) findViewById(R.id.side_navigation_view);
@@ -75,58 +93,6 @@ public class PreMemberHome extends SherlockActivity implements ISideNavigationCa
 
     }
 
-  /*  public class GetLoginUser extends AsyncTask<String, String, String> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            dialog.setMessage("Please Wait..");
-            dialog.show();
-            dialog.setCancelable(false);
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            // TODO Auto-generated method stub
-            String retstring = "";
-            try {
-
-                SharedPreferences myPrefs = PreMemberHome.this
-                        .getSharedPreferences("remember", MODE_PRIVATE);
-                String user_id = myPrefs.getString("userid", null);
-                String response = CustomHttpClient
-                        .executeHttpGet("http://ospinet.com/app_ws/android_app_fun/get_login_user_details?user_id="
-                                + user_id);
-                retstring = response.toString();
-
-            } catch (Exception io) {
-
-            }
-            return retstring;
-        }
-        @Override
-        protected void onPostExecute(String retstring) {
-            if (dialog.isShowing())
-                dialog.dismiss();
-            JSONObject jsonResponse = null;
-            try {
-                jsonResponse = new JSONObject(retstring);
-
-                JSONArray jsonMainNode = jsonResponse.optJSONArray("Login user");
-                
-                for (int i = 0; i < jsonMainNode.length(); i++) {
-                    JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
-                    String name = jsonChildNode.optString("fname") + " " + jsonChildNode.optString("lname");
-                    // rahul
-                    txtname.setText(name);
-                }
-            }catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-    }
-*/
     @Override
     public void onSideNavigationItemClick(int itemId) {
         switch(itemId)
