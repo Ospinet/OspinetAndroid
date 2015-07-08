@@ -1,4 +1,0 @@
-OspinetAndroid
-==============
-
-Android Collabortion
